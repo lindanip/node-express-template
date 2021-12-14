@@ -1,0 +1,15 @@
+version: '3'
+services:
+  nodeapp:
+    container_name: template-node
+    restart: always
+    build: .
+    ports:
+      - '80:4041'
+    links:
+      - mysql-db
+  mysql-db:
+    container_name: template-db
+    image: mysql
+    ports:
+      - '3306:3306'
